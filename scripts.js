@@ -1,10 +1,18 @@
-function SubscriptionMsg() {
-    if (document.getElementById("email").innerHTML.length == 0) {
-        var message = document.getElementsByClassName('message')[0];
-        message.innerHTML += "Please enter a valid email address";}
-    else {
-        var message = document.getElementsByClassName('message')[0];
-        var newemail =document.getElementById("email").innerHTML;
-        message.innerHTML += "Thank you! Your email address ${newmail} has been added to our mailing list!";
-    }
-      }
+window.onload=function(){
+    const btn =document.getElementsByTagName("button")[0];
+    const email= document.getElementById("email");
+    var form = document.getElementsByClassName("form-group");
+    
+    
+    form.addEventListener("submit",(e) =>{
+    let messages=document.getElementsByTagName("message");
+     if(email.value==null){
+     messages.push("Please enter a valid email address")
+     }
+     else{
+     messages.push("Thank you! Your email address ${name} has been added to our mailings list")
+     }
+    
+e.preventDefault()
+})
+     }
